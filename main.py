@@ -50,7 +50,7 @@ def hello(item:Item):
   return json.loads(result)
 
 
-@app.post("/porparam/")
+@app.post("/porParam/")
 def hello(datourl:str):
  
   
