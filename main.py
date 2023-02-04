@@ -1,16 +1,4 @@
-# import mini_api
-
-# server = mini_api.Server(server_address=('localhost', 8888))
-
-# @server.route('aaa')
-# def route(args):
-#     return 200, 'All good'
-
-# server.start()
-
-# server.stop()
-
-from fastapi import FastAPI, Form
+from fastapi import FastAPI
 from pydantic import BaseModel
 
 import http.client
@@ -62,9 +50,10 @@ def hello(item:Item):
   return json.loads(result)
 
 
-@app.post("/porParam/{url}")
-def hello(urlP:str):
+@app.post("/porparam/")
+def hello(datourl:str):
  
+  
   conn = http.client.HTTPSConnection("dapi.stalcraft.net")
 
   headersList = {
@@ -73,7 +62,7 @@ def hello(urlP:str):
 
   payload = ""
 
-  conn.request("GET", urlP, payload, headersList)
+  conn.request("GET", datourl, payload, headersList)
   response = conn.getresponse()
   result = response.read()
 
